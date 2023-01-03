@@ -79,3 +79,8 @@ module.exports.login_post = async (req, res) => {
         res.status(400).json({errors})
     }
 }
+
+module.exports.logout_get = async (req, res) => {
+    res.cookie('authToken', '', { maxAge: 0 })
+    res.redirect('/')
+}
